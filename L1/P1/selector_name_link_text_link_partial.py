@@ -21,7 +21,7 @@ link_autocomplete.click()
 sleep(3)
 driver_root.back()
 sleep(3)
-------------------------------------------------------------------
+#------------------------------------------------------------------
 # PARTIAL LINK TEXT
 link_auto_partial = driver_root.find_element(By.PARTIAL_LINK_TEXT, 'Switch') #Switch Window full text
 link_auto_partial.click()
