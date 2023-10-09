@@ -14,5 +14,4 @@ driver.find_element(By.XPATH, "(//input)[1]")
 # Cauta al doilea element de tip input
 driver.find_element(By.XPATH, "(//input)[2]")
 
-
 sleep(5)

@@ -34,7 +34,6 @@ scurta si eficienta de a identifica un element in aplicatia web.
 
 """
 
-
 from selenium import webdriver
 from time import sleep
 from selenium.webdriver.common.by import By

@@ -1,4 +1,3 @@
-
 """
 simbolul * - selecteaza toate elementele
 #idElement - selecteaza elementul cu id-ul "idElement"
