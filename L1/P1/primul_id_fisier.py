@@ -71,9 +71,9 @@ Selectorii se cauta cu :
 #     -SELECTORI-
 # ----------------------------------------------------------------------------------
 # -- Selector ID
-driver.find_element(By.ID, "first-name").send_keys("Modificare prin selector ID")
-driver.find_element(By.ID, "job-title").send_keys("Modificare prin selector ID")
-sleep(2)
+# driver.find_element(By.ID, "first-name").send_keys("Modificare prin selector ID")
+# driver.find_element(By.ID, "job-title").send_keys("Modificare prin selector ID")
+# sleep(2)
 
 #  -- Selector Class
 
@@ -102,6 +102,6 @@ sleep(2)
 #     i += 1
 # sleep(5)
 
-elemente_control = driver.find_elements(By.CLASS_NAME, 'form-control')
-print(f'Avem {len(elemente_control)} elemente cu clasa form-control.')
-sleep(2)
+# elemente_control = driver.find_elements(By.CLASS_NAME, 'form-control')
+# print(f'Avem {len(elemente_control)} elemente cu clasa form-control.')
+# sleep(2)
