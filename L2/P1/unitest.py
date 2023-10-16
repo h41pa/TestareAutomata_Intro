@@ -36,3 +36,30 @@ class Test(unittest.TestCase):
         self.assertEqual(expected_title, actual_title, "Unexpected title") # puteam scrie si asa 
 
 
+"""
+Libraria unittest este o librarie care suporta crearea de teste  rulabile direct in interiorul clasei
+Pentru a putea sa ne folosim de libraria unit test, trebuie sa cream o clasa de teste care sa mosteneasca 
+clasa TestCase din libraria unittest. 
+Exemplu : class TestAlerts(unittest.TestCase):
+Orice clasa de teste trebuie sa mosteneasca clasa TestCase si sa aiba urmatoarele particularitati:
+
+1. metoda setUp() -> toate activitatile care trebuie sa fie executate inainte de ORICE TEST din clasa respectiva
+
+2. metoda tearDown() -> toate activitatile care trebuie sa fie executate dupa de ORICE TEST din clasa respectiva
+
+3. toate metodele de test trebuie sa aiba prefixul test_
+
+In general fiecare clasa de test trebuie sa contina metode de test inrudite (adica care acopera aceeasi zona din aplicatie) si care in general sunt conditionate de acelasi set de preconditii (ex: toate testele de login trebuie sa porneasca de pe pagina de login, toate testele de search product pleaca de la actiunea initiala de cautare a unui produs etc).
+
+Atunci cand vrem sa rulam testele putem sa o facem sub mai multe forme: 
+
+Click pe triunghiul verde de langa numele clasei de test -> va rula toate testele din acea clasa
+Click pe triunghiul verde de langa numele metodei de test -> va executa doar metoda de test pe care am rulat-o
+Rularea din terminal a unui fisier de teste specific: python -m unittest filename.py
+Rularea din terminal a tuturor fisierelor de test: python -m unittest
+
+Atunci cand vrem sa sarim unele teste la rulare ne putem folosi de decoratorul @unittest.skip 
+plasat inaintea fiecarei metode de test care se doreste a fi sarita.
+
+
+"""

@@ -58,7 +58,7 @@ class TestAlerts(TestCase):
         self.assertEqual(expected_text, actual_text, "Error, text are not matching.")
         time.sleep(4)
 
-    @unittest.skip
+    @unittest.skip  # pentru a da skip la test
     def test_accept_prompt_alert_with_text(self):
         self.click(self.BUTTON_JS_ALERT_PROMPT)
         alert = self.driver.switch_to.alert
@@ -79,7 +79,8 @@ class TestAlerts(TestCase):
         time.sleep(5)
 
     def test_accept_prompt_alert_without_text(self):
-        self.click(self.BUTTON_JS_ALERT_PROMPT)
+        self.driver.find_element(*self.BUTTON_JS_ALERT_PROMPT).click()
+        # self.click(self.BUTTON_JS_ALERT_PROMPT)
         time.sleep(3)
         alert = self.driver.switch_to.alert
         alert.accept()
