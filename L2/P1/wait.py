@@ -2,8 +2,10 @@ import time
 from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+# astea pentru implicit wait
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 # ultimele 2 pt explicit wait
@@ -66,7 +68,7 @@ wait = WebDriverWait(driver, 15)
 print(f'{get_time()}: Incepem asteptarea')
 # in codul de html exista buttonul,dar nu este vizibil
 wait.until(EC.visibility_of_element_located((By.ID, "hidden"))) #avem duble ((By.ID, "hidden")) pentru il cere ca tuplu
-print(f'{get_time()}: Elementul este vizibil')                    # ca sa il apelam , folosim *
+print(f'{get_time()}: Elementul este vizibil')                    # ca sa il apelam , folosim * - DESPACHETAM
 
 driver.find_element(By.ID, "hidden").click()
 
