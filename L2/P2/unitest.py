@@ -107,7 +107,6 @@ class Test(unittest.TestCase):
             #     print(f"Parola corecta este: '{parola}'")
             #     break
 
-
 """
 În acest context, apelul self.is_element_present(mesaj_eroare) este utilizat pentru a verifica dacă mesajul de eroare 
 specificat de mesaj_eroare este prezent pe pagină. Dacă este prezent, atunci se afișează mesajul "Inca nu am gasit parola" 
