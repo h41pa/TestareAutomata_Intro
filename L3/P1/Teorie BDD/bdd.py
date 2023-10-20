@@ -9,9 +9,10 @@ BDD - Behavior Driven Development
     Then verifica output, comportamentul este cel asteptat.
 """
 """
-pip install behave
-pip install behave-html-formatter
-instalare pentru bdd
+ - instalare pentru bdd : 
+   - pip install behave
+    - pip install behave-html-formatter
+
 de asemenea trebuie plugins din 'download_these.png'instalate Cucumber, Gherkin, Ini
 versiune de pycharm free in bdd nu o sa apara sugestii.
 """
@@ -50,19 +51,32 @@ versiune de pycharm free in bdd nu o sa apara sugestii.
       Tot aici sunt instantate si obiectele din clasa care mapeaza pagina web ,
        fiecare pagina trebuie trecuta aici.
 
+- behave.ini - pentru a face un raport, trebuie sa contina codul:
+[behave.formatters]
+html = behave_html_formatter:HTMLFormatter
+ Prin acest ii spunem sa ne faca un raport html la testele noastre , pentru a rula  raportul folosim comanda:
+ behave -f html -o numeleraportului.html 
+  dupa ce genereaza pagina html ii dai click dreapta, open with -> browsers -> chrome
 
-pasi:
--fac folderele , 
--driver.py , 
-- un fisier.feature in feature prin care deci pasii,
-- pages/base_page.py pentru a creea metodele ajutatoare,
-- tot in pages pagina pe care o testez cu toatele metodele si import BasePage,
-pentru a folosi metodele ajutoare,
-- environment.py
-- steps/ si facem fisier pentru fiecare pagina din feature/
- pentru a lega intre ele :
- context.login_page.set_email - context.pagina.metoda pentru fiecare 
-   actiune din fisierul .feature 
+~~~~~
+
+ ####  Ordinea de urmat :
+ - fac folderele , features,pages,steps
+ - driver.py , 
+ - un fisier.feature in feature prin care descriu pasii de testare pentru fiecare feature, given,when,then
+ - pages/base_page.py pentru a creea metodele ajutatoare.
+ - tot in pages pagina pe care o testez cu toatele metodele si import BasePage,
+     pentru a folosi metodele ajutoare,
+ - environment.py pentru a defini conxtul in care rulam textul
+ - steps/ si facem fisier pentru fiecare pagina din feature/ @given@when@then , def step_impl(context)
+     pentru a lega intre ele :
+      context.login_page.set_email - context.pagina.metoda pentru fiecare 
+      actiune din fisierul .feature 
    
-pentru rulare folosim comanda behave in folderul principal in consola
+- pentru rulare folosim comanda "behave" in consola , fiind in folderul principal
+- behave -f html -o numeleraportului.html ,  folosim comanda pentru a rula un raport html pentru test gen
+                                                 behave -f html -o raport-initial.html
+                            dupa ce genereaza pagina html ii dai click dreapta, open with -> browsers -> chrome
+
+
 """
