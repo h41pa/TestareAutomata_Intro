@@ -78,5 +78,8 @@ html = behave_html_formatter:HTMLFormatter
                                                  behave -f html -o raport-initial.html
                             dupa ce genereaza pagina html ii dai click dreapta, open with -> browsers -> chrome
 
-
+"""
+"""
+primul_behave_consola.png - poza cu testul din consola folosind behave 
+primul-raport.html -  raportul efectual cu behave html 
 """
