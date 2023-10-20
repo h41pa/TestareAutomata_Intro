@@ -154,24 +154,5 @@ POM ( Page Object Model ) este un Design Pattern.
     - Poate sa fie folosit in mai multe limbaje sau framework-uri ca ex. Python + Pytest, Java + TestNG, samd.
     - Oricand este nevoie sa interactioneze cu interfata web, testele folosesc metode din clasa ce reprezinta pagina
     respectiva
-
-"""
-"""
-pip install behave
-pip install behave-html-formatter
-instalare pentru bdd
-de asemenea trebuie plugins din 'download_these.png'instalate Cucumber, Gherkin, Ini
-versiune de pycharm free in bdd nu o sa apara sugestii.
-"""
-"""
-BDD - folder structure 
-features - aici sunt fisierele .feature , aici sunt fisierele in limbaj natural - given, when, then 
-pages    - aici o sa contina clasele pentru fiecare pagina
-steps    - contine maparea pasilor din "features" limbaj natural in logica din "pages" - 
-corelarea dintre limbajul natural si functiile pe care noi le scriem efectiv in cod.
-"""
-"""
-base_page.py elementele comune care sunt in acea pagina.( gen butoare care raman fixe le punem in base page, 
-toate paginile ulterioare vor avea elem care se gasesc in base page
 """
 
