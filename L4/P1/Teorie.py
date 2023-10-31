@@ -112,9 +112,39 @@ Modele principale de HTTP:
     PUT - Aceasta metoda este folosita pentru update-ul unei inregistrari care este deja prezenta. Executia cu success
     intoarce codul 200 sau 201.
     PATCH - Aceasta metoda este folosita pentru a solicita modificarea doar anumitor parti din inregistrare, ca o
-    peticire. Executia cu success intoarce codul 200 sau 2-1.
-    DELETE - Aceasta metoda este folosita pentru a sterge inregistrarea. Executia cu success intaorce 200.
+    peticire. Executia cu success intoarce codul 200 sau 201.
+    DELETE - Aceasta metoda este folosita pentru a sterge inregistrarea. Executia cu success intoarce 200.
 
 POSTMAN un HUI pentru trimiterea requesturilor si primirea raspunsurilor HTTP
+
+"""
+
+"""
+ --- Componente ale aplicației POSTMAN :
+
+ • New  - Opțiune folosită pentru a crea un nou request, colecție sau mediu de testare 
+(sau alte elemente utile pentru dezvoltare)
+ • Import – Opțiune folosită pentru importarea colecțiilor din exterior
+ • My Workspace – Un concept similar cu cel de proiect, în care se vor stoca toate requesturile din 
+cadrul organizației sau echipei
+ • Invite – Opțiune folosită pentru a invita alți oameni sa colaboreze la proiectul nostru. 
+ • History – Contine toate request-urile trimise anterior in workspace-ul curent 
+ • Collections – Contine o serie de requesturi care sunt grupate in functie de diverse obiective.
+O colectie poate contine subfoldere. Subfolderele si requesturile pot fi dublate (desi nu se recomanda)
+ • Request tab – Arata numele request-urilor pe care le ai deschise 
+ • HTTP Request – Contine un dropdown cu mai multe metode de HTTP cum ar fi GET, POST, COPY, DELETE, etc. 
+In testarea de API, cele mai folosite metode sunt GET si POST. 
+ • Request URL – Mai  poarta numele de endpoint, si reprezinta un link pe care API-ul il va folosi pentru comunicare 
+ • Save –  Optiune pentru a salva noul request sau pentru a actualiza un request creat anterior in urma unor schimbari 
+ • Params –  Stocheaza parameterii necesari pentru filtrarea unui request sub forma unei perechi cheie-valoare
+ • Authorization  - Loc in  care sunt stocate datele de autentificare pentru a putea fi autorizati sa executam request-ul. 
+Aici vom pune token-ul pentru Oauth daca este necesar.
+ • Headers – Headers este locul in care vom defini informatii legate de tipul request-ului cum ar fi content type JSON. 
+In practica, tot aici se face si autorizarea
+ • Body –  Informatia care va fi pasata API-ului intr-un request de POST, PUT sau PATCH .
+ • Pre-request Script – Bucati de cod care vor fi executate automat inainte de request. 
+Cele mai des folosite scripturi sunt cele pentru setarea mediului 
+ • Tests – Bucati de cod executate automat dupa executarea request-ului cu scopul de a verifica 
+daca raspunsul returnat in timpul executarii testului este cel asteptat (mesaj, cod, timp de executie, informatii etc)
 
 """
