@@ -45,16 +45,16 @@ Avantaje:
     - primim feedback timpuriu legat de functionalitatea produslui si avem o siguranta mai mare asupra calitatii
     finale a produsului din punct de vedere al nevoilor clientului
 
-Elemte ale metodologiei Agile:
-
-    - Backlog = Totalitatea elemtelor care se doresc a fi implementate in cadrul unui proiect.
+Elemente ale metodologiei Agile:
+     (ce e mai jos facem parte din Scrum)
+    - Backlog = Totalitatea elementelor care se doresc a fi implementate in cadrul unui proiect.
 
     - Backlog rafinement = Filtrarea functionalitatilor care nu sunt urgente sau care sunt mai greu de implementat pentru
-    beneficiu pe care il aduc si respectiv clarificarea si detalierea functionalitatilor ramanse de implementat.
+    beneficiu pe care il aduc si respectiv clarificarea si detalierea functionalitatilor ramase de implementat.
 
     - Sprint plannig = Definirea tuturor functionalitatilor care se doresc a fi implementate intr-un sprint.
 
-    - Daily Standup = Sedinta zilnice care au scopul de identifica:
+    - Daily Standup = Sedinta zilnice care au scopul de a identifica:
             - la ce s-a lucrat in ziua anterioara
             - la ce lucreaza acum / azi
             - daca exista blockere care ne impiedica sa ne implinim taskurile.
@@ -70,7 +70,7 @@ interval de doua, trei saptamani, dar este la latitudinea echipei.
 
 Un proiect implementat in Agile este format dintr-o succesiune de sprint-uri care fiecare implementeaza cate o bucatica
 din produs
-Rezultatul unui sprint se numste product increment (pentru ca incrementeaza numarul de functionalitati gata de utilizare
+Rezultatul unui sprint se numeste product increment (pentru ca incrementeaza numarul de functionalitati gata de utilizare
 pentru produsul nostru)
 
 Kanban - O metodologie de software development care presupune desfasurarea activitatii pe baza unui board, unde sunt
