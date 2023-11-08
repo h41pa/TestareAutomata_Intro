@@ -10,7 +10,7 @@ class SpotifyRequests:
     _GET_ALBUM_ENDPOINT = "/albums/"
     _GET_PLAYlIST_ENDPOINT = "/playlists/"
     _GET_NEW_RELEASES_ENDPOINT = "/browse/new-releases"
-    _AUTH_CLIENT_SECRET_AND_PASSWORD = ("----", "--------")
+    _AUTH_CLIENT_SECRET_AND_PASSWORD = ("----", "-----")
     _CALLBACK_URI = "http://testmyspotifyapp13"
     _TOKEN = ""
     _SCOPES = "ugc-image-upload user-read-playback-state user-modify-playback-state user-read-currently-playing " \
@@ -19,7 +19,6 @@ class SpotifyRequests:
               "user-read-playback-position user-top-read user-read-recently-played user-library-modify " \
               "user-library-read user-read-email user-read-private"
 
-    _GET_USER = "/me"
 
     def __init__(self):
         self.generate_token()
@@ -80,17 +79,17 @@ class SpotifyRequests:
     #     reponse_id = requests.get(get_id, headers=self.get_headers_params())
     #     return reponse_id
 
-    def create_playlist(self, playlist_name, description, public):
-
-        create_playlist_endpoint = f"https://api.spotify.com/v1/users/{self.get_id()}/playlists"
-
-        body_json = {
-            "name": playlist_name,
-            "description": description,
-            "public": public
-        }
-        response = requests.post(create_playlist_endpoint, headers=self.get_headers_params(), json=body_json)
-        return response
+    # def create_playlist(self, playlist_name, description, public):
+    #
+    #     create_playlist_endpoint = f"https://api.spotify.com/v1/users/{self.get_id()}/playlists"
+    #
+    #     body_json = {
+    #         "name": playlist_name,
+    #         "description": description,
+    #         "public": public
+    #     }
+    #     response = requests.post(create_playlist_endpoint, headers=self.get_headers_params(), json=body_json)
+    #     return response
 
 
 spotify = SpotifyRequests()
