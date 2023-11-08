@@ -36,6 +36,7 @@ class SimpleBooksRequests:
             "clientEmail": f"madalin{rand_number}@example.com"
         }
         reponse = requests.post(auth_url, json=body_json)
+
         return reponse.json()["accessToken"]
 
     def submit_order(self, acces_token, book_id, customer_name):

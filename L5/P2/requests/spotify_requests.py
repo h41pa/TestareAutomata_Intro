@@ -20,6 +20,7 @@ class SpotifyRequests:
               "user-library-read user-read-email user-read-private"
 
     _GET_USER = "/me"
+
     def __init__(self):
         self.generate_token()
 
