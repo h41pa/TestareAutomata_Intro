@@ -9,7 +9,6 @@ class SimpleBooksRequests:
     _API_AUTH_ENDPOINT = "/api-clients/"
     _ORDERS_ENDPOINT = "/orders"
 
-
     def get_api_status(self):
         api_status_url = self._BASE_URL + self._API_STATUS_ENDPOINT
         response = requests.get(api_status_url)
@@ -39,8 +38,6 @@ class SimpleBooksRequests:
         reponse = requests.post(auth_url, json=body_json)
         return reponse.json()["accessToken"]
 
-
-
     def submit_order(self, acces_token, book_id, customer_name):
         submit_orders_url = self._BASE_URL + self._ORDERS_ENDPOINT
         headers_params = {'Authorization': acces_token}
@@ -51,16 +48,17 @@ class SimpleBooksRequests:
         response = requests.post(submit_orders_url, headers=headers_params, json=body_json)
         return response
 
-
-
     def update_order(self, acces_token, order_id, new_costumer_name):
         update_url = self._BASE_URL + self._ORDERS_ENDPOINT + f"/{order_id}"
         header_param = {'Authorization': acces_token}
         body_json = {
             "customerName": new_costumer_name
         }
-        response = requests.patch(update_url,headers=header_param, json=body_json )
+        response = requests.patch(update_url, headers=header_param, json=body_json)
         return response
 
-
-
+    def delete_order(self, acces_token, order_id):
+        delete_link = self._BASE_URL + self._ORDERS_ENDPOINT + f'/{order_id}'
+        header_params = {'Authorization': acces_token}
+        reponse = requests.delete(delete_link, headers=header_params)
+        return reponse
