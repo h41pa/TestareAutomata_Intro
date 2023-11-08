@@ -10,7 +10,7 @@ class SpotifyRequests:
     _GET_ALBUM_ENDPOINT = "/albums/"
     _GET_PLAYlIST_ENDPOINT = "/playlists/"
     _GET_NEW_RELEASES_ENDPOINT = "/browse/new-releases"
-    _AUTH_CLIENT_SECRET_AND_PASSWORD = ("f373bd3cfd4f4d47945ead29af02d675", "a131989ad88f4ec88ad6d7f59b12c5d1")
+    _AUTH_CLIENT_SECRET_AND_PASSWORD = ("----", "--------")
     _CALLBACK_URI = "http://testmyspotifyapp13"
     _TOKEN = ""
     _SCOPES = "ugc-image-upload user-read-playback-state user-modify-playback-state user-read-currently-playing " \
