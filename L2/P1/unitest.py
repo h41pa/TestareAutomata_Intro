@@ -28,12 +28,13 @@ class Test(unittest.TestCase):
         actual_url = self.driver.current_url
 
         assert self.LOGIN_LINK == actual_url, f"Unexpected URL, expected {self.LOGIN_LINK}, but found {actual_url}"
+
     def test_title(self):
         expected_title = "The Internet"
         actual_title = self.driver.title
 
-        #assert expected_title == actual_title, "Unexpected title"
-        self.assertEqual(expected_title, actual_title, "Unexpected title") # puteam scrie si asa 
+        # assert expected_title == actual_title, "Unexpected title"
+        self.assertEqual(expected_title, actual_title, "Unexpected title")  # puteam scrie si asa
 
 
 """
