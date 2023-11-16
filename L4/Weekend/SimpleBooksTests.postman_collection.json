@@ -1,0 +1,721 @@
+{
+	"info": {
+		"_postman_id": "6e345ecc-031c-4193-a0c6-d56a7b290a73",
+		"name": "SimpleBooksTests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16690084"
+	},
+	"item": [
+		{
+			"name": "Status",
+			"item": [
+				{
+					"name": "Get status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();",
+									"// prints in console",
+									"console.log(jsonData);",
+									"",
+									"// Test 1: Test the status code ",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"// Test 2: Test status is OK from json",
+									"pm.test(\"Your test name\", function () {",
+									"    // pm.expect(jsonData.status).to.eql(\"OK\");",
+									"    pm.expect(jsonData[\"status\"]).to.eql(\"OK\");",
+									"});",
+									"",
+									"// Test 3: Performance test",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/status",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"status"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "List of books",
+			"item": [
+				{
+					"name": "Get list of all books (no optional query param provided)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();",
+									"console.log(jsonData)",
+									"",
+									"// Test 1: Status code check",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"// Test 2: Prima cartea are atributele corecte",
+									"",
+									"pm.test(\"Check first book attributes\", function () {",
+									"    pm.expect(jsonData[0].id).to.eql(1);",
+									"    pm.expect(jsonData[0].name).to.eql(\"The Russian\");",
+									"    pm.expect(jsonData[0].type).to.eql(\"fiction\");",
+									"    // pm.expect(jsonData[0].available).to.eql(true);",
+									"    pm.expect(jsonData[0].available).to.be.true;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/books",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get list of all books param type is fiction",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();",
+									"console.log(jsonData)",
+									"",
+									"// Test 1: Status code check",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"// Test 2: Prima cartea are atributele corecte",
+									"",
+									"pm.test(\"Check first book attributes\", function () {",
+									"    pm.expect(jsonData[0].id).to.eql(1);",
+									"    pm.expect(jsonData[0].name).to.eql(\"The Russian\");",
+									"    pm.expect(jsonData[0].type).to.eql(\"fiction\");",
+									"    // pm.expect(jsonData[0].available).to.eql(true);",
+									"    pm.expect(jsonData[0].available).to.be.true;",
+									"});",
+									"",
+									"",
+									"// Test 3: Testam fiecare carte pentru type = fiction",
+									"pm.test(\"All books have fiction type\", function() {",
+									"",
+									"    // this is like for each in python",
+									"    for(const book of jsonData) {",
+									"        pm.expect(book.type).to.eql(\"fiction\")",
+									"    }",
+									"    // identic cu for-ul de mai sus",
+									"    jsonData.forEach(function(book){",
+									"        pm.expect(book.type).to.eql(\"fiction\");",
+									"    });",
+									"});",
+									"",
+									"// Test 4: Testam ca fiecare carte are param available = true",
+									"pm.test(\"All books are available\", function() {",
+									"    for(const book of jsonData){",
+									"        pm.expect(book[\"available\"]).to.be.true;",
+									"    }",
+									"});",
+									"",
+									"// Test 5: Testam ca id-urile sunt de tip numbers",
+									"// numbers is default for numbers in JavaScript",
+									"pm.test(\"All ids are numbers\", function() {",
+									"    for(const book of jsonData){",
+									"        pm.expect(typeof book.id).to.be.eql(\"number\")",
+									"    }",
+									"});",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/books?type=fiction",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"books"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "fiction"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get list of all books param type is non-fiction",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();",
+									"console.log(jsonData)",
+									"",
+									"// Test 1: Status code check",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"// Test 2: Prima cartea are atributele corecte",
+									"",
+									"pm.test(\"Check first book attributes\", function () {",
+									"    pm.expect(jsonData[1].id).to.eql(5);",
+									"    pm.expect(jsonData[1].name).to.eql(\"Untamed\");",
+									"    pm.expect(jsonData[1].type).to.eql(\"non-fiction\");",
+									"    // pm.expect(jsonData[0].available).to.eql(true);",
+									"    pm.expect(jsonData[1].available).to.be.true;",
+									"});",
+									"",
+									"",
+									"// Test 3: Testam fiecare carte pentru type = non-fiction",
+									"pm.test(\"All books have fiction type\", function() {",
+									"",
+									"    // this is like for each in python",
+									"    for(const book of jsonData) {",
+									"        pm.expect(book.type).to.eql(\"non-fiction\")",
+									"    }",
+									"    // identic cu for-ul de mai sus",
+									"    jsonData.forEach(function(book){",
+									"        pm.expect(book.type).to.eql(\"non-fiction\");",
+									"    });",
+									"});",
+									"",
+									"// Test 4: Testam ca prima carte e unavailable and the second is available",
+									"pm.test(\"First books is not available, but the second is\", function() {",
+									"    pm.expect(jsonData[0].available).to.be.false;",
+									"    pm.expect(jsonData[1].available).to.be.true;",
+									"});",
+									"",
+									"// Test 5: Testam ca id-urile sunt de tip numbers",
+									"// numbers is default for numbers in JavaScript",
+									"pm.test(\"All ids are numbers\", function() {",
+									"    for(const book of jsonData){",
+									"        pm.expect(typeof book.id).to.be.eql(\"number\")",
+									"    }",
+									"});",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/books?type=non-fiction",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"books"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "non-fiction"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get list of books when limit is 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json()",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"// Test 1: Testam ca s-au returnat exact 2 carti ",
+									"pm.test(\"The returned number of books is 2\", function(){",
+									"    pm.expect(jsonData.length).to.eql(2);",
+									"});",
+									"",
+									"// Test 2: Testam atributele pentru cartea a doua ",
+									"",
+									"pm.test(\"Attributes are correct for the second book\", function(){",
+									"    const book2 = {",
+									"            \"id\": 2,",
+									"            \"name\": \"Just as I Am\",",
+									"            \"type\": \"non-fiction\",",
+									"            \"available\": false",
+									"        }",
+									"    pm.expect(jsonData[1]).to.eql(book2);",
+									"});",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/books?limit=2",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"books"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Single Books",
+			"item": [
+				{
+					"name": "Get a book by id that exists",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json()",
+									"",
+									"// Test 1: Testam aparitia cheii price and current stock in response",
+									"",
+									"pm.test(\"Test appearance of price and current-stock in response\", function () {",
+									"    pm.expect(jsonData).to.have.property('price');",
+									"    pm.expect(jsonData).to.have.property('current-stock')",
+									"});",
+									"",
+									"// Test 2: Testam ca current stock mai mare decat 5 si pretul este 16.2",
+									"pm.test(\"Test current stock greater than 5 and price is 16.2\", function () {",
+									"    pm.expect(jsonData['current-stock']).greaterThan(5)",
+									"    pm.expect(jsonData.price).to.eql(16.2);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/books/3",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"books",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a book by id that does not exists",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();",
+									"",
+									"console.log(jsonData)",
+									"",
+									"// Test 1: Testam status code is 404 Not Found",
+									"pm.test(\"Status code is: 404 Not Found\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});",
+									"",
+									"// Test 2: Verificam ca in raspuns avem o eroare",
+									"pm.test(\"Body has error\", function () {",
+									"    // pm.expect(jsonData).to.have.property('error');",
+									"    pm.expect(pm.response.text()).to.include('erro');",
+									"});",
+									"",
+									"// Test 3: Verificam daca in raspuns avem eroarea asteptata",
+									"",
+									"pm.test(\"Error message as expected\", function () {",
+									"    pm.expect(jsonData.error).to.eql(\"No book with id 7\");",
+									"});",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/books/:bookID",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"books",
+								":bookID"
+							],
+							"variable": [
+								{
+									"key": "bookID",
+									"value": "7"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Submit Order",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();",
+									"",
+									"",
+									"// Test 1: Verify if the status code is 201 Created",
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"// Test 2: Verify post operation is done corectly ",
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
+									"});",
+									"",
+									"// Test 3: Verify attribute created is true and the response has orderId",
+									"pm.test(\"Attribute created value is true\", function () {",
+									"    pm.expect(jsonData.created).to.eql(true);",
+									"    pm.expect(jsonData).to.have.property('orderId');",
+									"});",
+									"",
+									"// Test 4: Testam ca orderID este de tip string",
+									"pm.test(\"Order id is of type string\", function(){",
+									"    var orderID = jsonData.orderId;",
+									"    console.log(orderID); //afiseaza id-ul order-ului",
+									"    pm.expect(orderID).to.be.a('string');",
+									"});",
+									"",
+									"// Test 5: Test ca orderId are cel putin 10 caracere",
+									"pm.test(\"OrderId has at least 10 characters\", function(){",
+									"    var orderID = jsonData.orderId;",
+									"    pm.expect(orderID.length).to.be.at.least(10);",
+									"});",
+									"",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{apiToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"bookId\": 3,\n  \"customerName\": \"Johnnyyyy\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/orders",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get single order",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"// Test that we have quantity and customer name in response",
+									"pm.test(\"Response contains quantity and customer name\", function(){",
+									"    // Check if quantity attribute exists",
+									"    if(jsonData.hasOwnProperty('quantity')){ // returneaza adevarat sau fals ",
+									"        console.log('Quantity: ', jsonData.quantity);",
+									"    } else",
+									"    {",
+									"        console.log('Quantity attribute is missing in the response');",
+									"    }",
+									"",
+									"    // Check customer name",
+									"    if(jsonData.hasOwnProperty('customerName')){",
+									"        console.log('Customer name: ', jsonData.customerName);",
+									"    }",
+									"    else",
+									"    {",
+									"        console.log(\"Customer name attribute is mising in the response\");",
+									"    }",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{apiToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/orders/:orderID",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"orders",
+								":orderID"
+							],
+							"variable": [
+								{
+									"key": "orderID",
+									"value": "6HQII8BH8Wxj62KYULa0N"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AUTH",
+			"item": [
+				{
+					"name": "Generate Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"",
+									"pm.test(\"Your test name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('accessToken');",
+									"});",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"clientName\": \"{{$randomFullName}}\",\n   \"clientEmail\": \"{{$randomUserName}}@yahoo.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api-clients",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api-clients"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "url",
+			"type": "string"
+		},
+		{
+			"key": "apiToken",
+			"value": "token",
+			"type": "string"
+		}
+	]
+}
