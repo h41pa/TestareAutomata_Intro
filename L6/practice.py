@@ -15,8 +15,6 @@ class TestMultipleTabs(unittest.TestCase):
         self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
         self.driver.get("https://the-internet.herokuapp.com")
 
-
-
     # def test_multiple_tabs(self):
     #     self.driver.get("https://the-internet.herokuapp.com/windows")
     #     time.sleep(3)
@@ -37,7 +35,6 @@ class TestMultipleTabs(unittest.TestCase):
             self.driver.switch_to.window(two)
             i += 1
             print(i)
-
 
     def tearDown(self) -> None:
         time.sleep(2)
