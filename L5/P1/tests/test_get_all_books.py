@@ -19,6 +19,7 @@ class TestGetAllBooks(unittest.TestCase):
         expected_number = 6
         actua_number = len(response.json())
 
+
         self.assertEqual(expected_number, actua_number, "Error, unexpected number of results")
 
     def test_get_all_books_filter_by_valid_limit(self):
@@ -62,7 +63,7 @@ class TestGetAllBooks(unittest.TestCase):
             print(current_book)
             actual_type = current_book['type']
 
-            self.assertEqual(expected_type, actual_type, f"Error , unxpected type for book {current_book['name']}")
+            self.assertEqual(expected_type, actual_type, f"Error , unexpected type for book {current_book['name']}")
 
     def test_get_all_book_filter_by_type_non_fiction(self):
         response = self.books_api.get_all_books(book_type="non-fiction")
@@ -75,5 +76,4 @@ class TestGetAllBooks(unittest.TestCase):
             current_book = response.json()[i]
             actual_type = current_book['type']
             self.assertEqual(expected_type, actual_type, f"Error unexpected type for book {current_book['name']}")
-
 
