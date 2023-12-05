@@ -76,4 +76,3 @@ class TestGetAllBooks(unittest.TestCase):
             current_book = response.json()[i]
             actual_type = current_book['type']
             self.assertEqual(expected_type, actual_type, f"Error unexpected type for book {current_book['name']}")
-
